@@ -49,6 +49,7 @@ describe User do
   describe "when email address is already taken" do
     before do
       user_with_some_email = @user.dup
+      user_with_some_email.email = @user.email.upcase
       user_with_some_email.save
     end
 
