@@ -19,6 +19,10 @@ module SessionsHelper
     @current_user ||= User.find_by(remember_token: User.encrypt(cookies[:remember_token]))
   end
 
+  def current_user?(user)
+    current_user == user
+  end
+
   def sign_out
     self.current_user = nil
     cookies.delete(:remember_token)
